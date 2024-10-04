@@ -1,10 +1,6 @@
-endpoints:
-  apiEndpoint: "http://localhost:8080"
-  clientEndpoint: "http://localhost:3000"
-
 spotKeys:
   publicKey: "__your_spotify_client_id__"
-  scretKey: "__your_spotify_secret__"
+  secretKey: "__your_spotify_secret__"
 
 server:
   image: yooooomi/your_spotify_server
@@ -15,9 +11,8 @@ server:
 mongo:
   image: mongo:6
   pullPolicy: IfNotPresent
-  useHostPath: false # If true use hostPath, if false use PVC
-  hostPath: / # Path to use if hostPath is true
-  storageSize: 1Gi # PVC storage size if useHostPath is false
+  dbStorage:
+    hostPath: /
 
 web:
   image: yooooomi/your_spotify_client

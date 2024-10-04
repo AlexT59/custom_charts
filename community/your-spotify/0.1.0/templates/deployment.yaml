@@ -20,13 +20,13 @@ spec:
             - containerPort: {{ .Values.server.port }}
           env:
             - name: API_ENDPOINT
-              value: {{ .Values.endpoints.apiEndpoint }}
+              value: "localhost:{{ .Values.server.port }}"
             - name: CLIENT_ENDPOINT
-              value: {{ .Values.endpoints.clientEndpoint }}
+              value: "0.0.0.0:{{ .Values.web.port }}"
             - name: SPOTIFY_PUBLIC
               value: {{ .Values.spotKeys.publicKey }}
             - name: SPOTIFY_SECRET
-              value: {{ .Values.spotKeys.privateKey }}
+              value: {{ .Values.spotKeys.secretKey }}
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -50,7 +50,7 @@ spec:
             - containerPort: {{ .Values.web.port }}
           env:
             - name: API_ENDPOINT
-              value: {{ .Values.endpoints.apiEndpoint }}
+              value: "localhost:{{ .Values.server.port }}"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -75,10 +75,5 @@ spec:
               mountPath: /data/db
       volumes:
         - name: mongo-storage
-          {{- if .Values.mongo.useHostPath }}
           hostPath:
-            path: {{ .Values.mongo.hostPath }}
-          {{- else }}
-          persistentVolumeClaim:
-            claimName: {{ .Release.Name }}-mongo-pvc
-          {{- end }}
+            path: {{ .Values.mongo.dbStorage.hostPath }}

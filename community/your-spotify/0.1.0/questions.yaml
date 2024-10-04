@@ -1,19 +1,130 @@
 groups:
-  - name: "App endpoints"
-    description: "The endpoints for the application"
-  
+  - name: "Ports"
+    description: "The ports for the application"
+  - name: "Spotify API"
+    description: "Spotify API configuration"
+  - name: "Storage configuration"
+    description: "The configuration for the storage"
+
 questions:
-  - variable: endpoints
-    label: "Endpoints"
+  - variable: web
+    label: "Web interface"
     description: "The endpoints for the application"
-    group: "App endpoints"
+    group: "Ports"
     schema:
       type: dict
       required: true
       attrs:
-        - variable: clientEndpoint
-          label: "Client Endpoint"
-          description: "The endpoint of your web application"
+        - variable: port
+          label: "Web port"
+          description: "The port for the web interface"
+          schema:
+            type: int
+            min: 9000
+            max: 65535
+            default: 30069
+            required: true
+
+  - variable: spotKeys
+    label: "Spotify API keys"
+    description: "The keys for the Spotify API"
+    group: "Spotify API"
+    schema:
+      type: dict
+      required: true
+      attrs:
+        - variable: publicKey
+          label: "Spotify public key"
+          description: "The public key for the Spotify API (cf https://github.com/Yooooomi/your_spotify?tab=readme-ov-file#creating-the-spotify-application)"
           schema:
             type: string
             required: true
+        - variable: secretKey
+          label: "Spotify private key"
+          description: "The private key for the Spotify API (cf https://github.com/Yooooomi/your_spotify?tab=readme-ov-file#creating-the-spotify-application)"
+          schema:
+            type: string
+            required: true
+
+  - variable: runAs
+    label: ""
+    group: User and Group Configuration
+    schema:
+      type: dict
+      attrs:
+        - variable: user
+          label: User ID
+          description: The user id that Actual Budget will run as.
+          schema:
+            type: int
+            min: 2
+            default: 568
+            required: true
+        - variable: group
+          label: Group ID
+          description: The group id that Actual Budget will run as.
+          schema:
+            type: int
+            min: 2
+            default: 568
+            required: true
+
+  - variable: mongo
+    label: ""
+    group: "Storage configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: dbStorage
+          label: MongoDB Storage
+          description: The storage configuration for the MongoDB database.
+          schema:
+            type: dict
+            attrs:
+              - variable: hostPath
+                label: Host Path
+                description: The host path to use for storage.
+                schema:
+                  type: hostpath
+                  required: true
+
+  - variable: resources
+    group: Resources Configuration
+    label: ""
+    schema:
+      type: dict
+      attrs:
+        - variable: limits
+          label: Limits
+          schema:
+            type: dict
+            attrs:
+              - variable: cpu
+                label: CPU
+                description: CPU limit for Actual Budget.
+                schema:
+                  type: string
+                  max_length: 6
+                  valid_chars: '^(0\.[1-9]|[1-9][0-9]*)(\.[0-9]|m?)$'
+                  valid_chars_error: |
+                    Valid CPU limit formats are</br>
+                    - Plain Integer - eg. 1</br>
+                    - Float - eg. 0.5</br>
+                    - Milicpu - eg. 500m
+                  default: "4000m"
+                  required: true
+              - variable: memory
+                label: Memory
+                description: Memory limit for Actual Budget.
+                schema:
+                  type: string
+                  max_length: 12
+                  valid_chars: "^[1-9][0-9]*([EPTGMK]i?|e[0-9]+)?$"
+                  valid_chars_error: |
+                    Valid Memory limit formats are</br>
+                    - Suffixed with E/P/T/G/M/K - eg. 1G</br>
+                    - Suffixed with Ei/Pi/Ti/Gi/Mi/Ki - eg. 1Gi</br>
+                    - Plain Integer in bytes - eg. 1024</br>
+                    - Exponent - eg. 134e6
+                  default: "8Gi"
+                  required: true
