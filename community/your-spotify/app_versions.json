@@ -60,25 +60,7 @@
             ],
             "portals": {},
             "questions": [
-                {
-                    "variable": "env",
-                    "label": "",
-                    "group": "server",
-                    "schema": {
-                        "type": "list",
-                        "default": [],
-                        "items": [
-                            {
-                                "variable": "CLIENT_ENDPOINT",
-                                "label": "Client endpoint",
-                                "schema": {
-                                    "type": "string",
-                                    "required": true
-                                }
-                            }
-                        ]
-                    }
-                }
+                
             ]
         }
     }
