@@ -24,9 +24,9 @@ spec:
             - name: CLIENT_ENDPOINT
               value: {{ .Values.endpoints.clientEndpoint }}
             - name: SPOTIFY_PUBLIC
-              value: {{ .Values.spotKey.publicKey }}
+              value: {{ .Values.spotKeys.publicKey }}
             - name: SPOTIFY_SECRET
-              value: {{ .Values.spotKey.privateKey }}
+              value: {{ .Values.spotKeys.privateKey }}
 ---
 apiVersion: apps/v1
 kind: Deployment
