@@ -6,6 +6,7 @@
       "healthy_error": null,
       "location": "community/your-spotify",
       "last_update": "2024-10-04 14:00:00",
+      "required_features": [],
       "human_version": "1.11.0_0.1.0",
       "version": "1.11.0",
       "app_metadata": {
