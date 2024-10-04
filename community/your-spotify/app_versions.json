@@ -54,7 +54,7 @@
         "schema": {
             "groups": [
                 {
-                    "name": "server",
+                    "name": "Server",
                     "description": "Server configuration"
                 },
                 {
@@ -66,13 +66,14 @@
                 {
                     "variable": "endpoints",
                     "label": "",
-                    "group": "server",
+                    "group": "Server",
                     "schema": {
-                        "type": "list",
-                        "items": [
+                        "type": "dict",
+                        "attrs": [
                             {
                                 "variable": "clientEndpoint",
                                 "label": "Client endpoint",
+                                "description": "The endpoint where the web application will be available.",
                                 "schema": {
                                     "type": "string",
                                     "required": true,
