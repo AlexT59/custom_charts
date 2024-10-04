@@ -26,7 +26,7 @@ spec:
             - name: SPOTIFY_PUBLIC
               value: {{ .Values.spotKey.publicKey }}
             - name: SPOTIFY_SECRET
-              value: {{ .Values.envr.privateKey }}
+              value: {{ .Values.spotKey.privateKey }}
 ---
 apiVersion: apps/v1
 kind: Deployment

@@ -56,6 +56,10 @@
                 {
                     "name": "server",
                     "description": "Server configuration"
+                },
+                {
+                    "name": "User and Group Configuration",
+                    "description": "Configure User and Group for Actual Budget"
                 }
             ],
             "questions": [
@@ -73,6 +77,38 @@
                                     "type": "string",
                                     "required": true,
                                     "default": "http://localhost:3000"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "runAs",
+                    "label": "",
+                    "group": "User and Group Configuration",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "user",
+                                "label": "User ID",
+                                "description": "The user id that Actual Budget will run as.",
+                                "schema": {
+                                    "type": "int",
+                                    "min": 2,
+                                    "default": 568,
+                                    "required": true
+                                }
+                            },
+                            {
+                                "variable": "group",
+                                "label": "Group ID",
+                                "description": "The group id that Actual Budget will run as.",
+                                "schema": {
+                                    "type": "int",
+                                    "min": 2,
+                                    "default": 568,
+                                    "required": true
                                 }
                             }
                         ]
