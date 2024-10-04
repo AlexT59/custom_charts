@@ -52,5 +52,35 @@
             "capabilities": [],
             "hostMounts": []
         }
+    },
+    "schema": {
+        "groups": [
+            {
+                "name": "server",
+                "description": "Server configuration"
+            }
+        ],
+        "questions": [
+            {
+                "variable": "env",
+                "label": "",
+                "group": "server",
+                "schema": {
+                    "type": "list",
+                    "default": [],
+                    "items": [
+                        {
+                            "variable": "CLIENT_ENDPOINT",
+                            "label": "Client endpoint",
+                            "schema": {
+                                "type": "string",
+                                "default": "http://localhost:3000",
+                                "required": true
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
     }
 }
