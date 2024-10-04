@@ -1,5 +1,5 @@
 {
-    "charts": {
+    "community": {
         "your-spotify-app": {
             "app_readme": "<h1>Your Spotify App</h1>\n<p>This is a custom application that provides a server for Spotify integration along with a MongoDB database and a client interface.</p>",
             "categories": [
