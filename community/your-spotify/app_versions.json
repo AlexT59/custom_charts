@@ -1,5 +1,5 @@
 {
-  0.1.0:
+  "0.1.0":
     {
       "healthy": true,
       "supported": false,
@@ -20,6 +20,6 @@
             ],
             "capabilities": [],
             "hostMounts": []
-        },
-    },
+        }
+    }
 }
