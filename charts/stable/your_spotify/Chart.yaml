@@ -1,0 +1,13 @@
+name: your-spotify
+description: Self-hosted Spotify tracking dashboard
+version: 0.1.0
+apiVersion: v2
+appVersion: 1.11.0
+home: https://github.com/Yooooomi/your_spotify
+icon: https://github.com/Yooooomi/your_spotify/blob/master/apps/client/public/logo.svg?raw=true
+sources:
+  - https://github.com/Yooooomi/your_spotify
+keywords:
+  - spotify
+  - dashboard
+  - music

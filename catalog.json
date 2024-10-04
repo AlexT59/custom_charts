@@ -1,0 +1,43 @@
+{
+    "charts": {
+        "your-spotify-app": {
+            "app_readme": "<h1>Your Spotify App</h1>\n<p>This is a custom application that provides a server for Spotify integration along with a MongoDB database and a client interface.</p>",
+            "categories": [
+                "media",
+                "music"
+            ],
+            "description": "Your Spotify App is a custom app for integrating with Spotify's API, complete with a backend, frontend, and MongoDB database.",
+            "healthy": true,
+            "healthy_error": null,
+            "home": "https://github.com/Yooooomi/your_spotify",
+            "location": "/charts/stable/your-spotify-app",
+            "latest_version": "0.1.0",
+            "latest_app_version": "1.0.0",
+            "latest_human_version": "0.1.0_1.0.0",
+            "last_update": "2024-10-04 12:00:00",
+            "name": "your-spotify",
+            "recommended": false,
+            "title": "Your Spotify App",
+            "maintainers": [
+                {
+                    "name": "AlexT59",
+                    "url": "https://github.com/AlexT59",
+                    "email": "alex.trupin@gmail.com"
+                }
+            ],
+            "tags": [
+                "spotify",
+                "media",
+                "music",
+                "mongodb"
+            ],
+            "screenshots": [
+                "https://user-images.githubusercontent.com/17204739/154752226-c2215a51-e20e-4ade-ac63-42c5abb25240.png"
+            ],
+            "sources": [
+                "https://github.com/Yooooomi/your_spotify"
+            ],
+            "icon_url": "https://github.com/Yooooomi/your_spotify/blob/master/apps/client/public/logo.svg?raw=true"
+        }
+    }
+}

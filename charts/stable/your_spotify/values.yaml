@@ -4,6 +4,7 @@ common:
 server:
   image: yooooomi/your_spotify_server
   tag: latest
+  pullPolicy: IfNotPresent
   port: 8080
   env:
     CLIENT_ENDPOINT: "http://localhost:3000"
@@ -12,6 +13,7 @@ server:
 
 mongo:
   image: mongo:6
+  pullPolicy: IfNotPresent
   useHostPath: false # If true use hostPath, if false use PVC
   hostPath: / # Path to use if hostPath is true
   storageSize: 1Gi # PVC storage size if useHostPath is false
@@ -19,4 +21,5 @@ mongo:
 web:
   image: yooooomi/your_spotify_client
   tag: latest
+  pullPolicy: IfNotPresent
   port: 3000
