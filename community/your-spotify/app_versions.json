@@ -1,45 +1,44 @@
 {
-  "0.1.0":
-    {
-      "healthy": true,
-      "supported": false,
-      "healthy_error": null,
-      "location": "community/your-spotify",
-      "last_update": "2024-10-04 14:00:00",
-      "required_features": [],
-      "human_version": "1.11.0_0.1.0",
-      "version": "1.11.0",
-      "chart_metadata": {
-        "name": "your-spotify",
-        "description": "Your Spotify is a self-hosted application that tracks what you listen and offers you a dashboard to explore statistics about it! It's composed of a web server which polls the Spotify API every now and then and a web application on which you can explore your statistics.",
-        "annotations": {
-          "title": "Your Spotify"
+    "0.1.0": {
+        "healthy": true,
+        "supported": false,
+        "healthy_error": null,
+        "location": "/community/your-spotify",
+        "last_update": "2024-10-04 14:00:00",
+        "required_features": [],
+        "human_version": "1.11.0_0.1.0",
+        "version": "1.11.0",
+        "chart_metadata": {
+            "name": "your-spotify",
+            "description": "Your Spotify is a self-hosted application that tracks what you listen and offers you a dashboard to explore statistics about it! It's composed of a web server which polls the Spotify API every now and then and a web application on which you can explore your statistics.",
+            "annotations": {
+                "title": "Your Spotify"
+            },
+            "type": "application",
+            "version": "0.1.0",
+            "apiVersion": "v2",
+            "appVersion": "1.11.0",
+            "kubeVersion": ">=1.16.0-0",
+            "maintainers": [
+                {
+                    "name": "AlexT59",
+                    "url": "",
+                    "email": "alex.trupin@gmail.com"
+                }
+            ],
+            "home": "https://github.com/Yooooomi/your_spotify",
+            "icon": "https://github.com/Yooooomi/your_spotify/blob/master/apps/client/public/logo.svg?raw=true",
+            "sources": [
+                "https://github.com/Yooooomi/your_spotify"
+            ],
+            "keywords": [
+                "spotify",
+                "media",
+                "music",
+                "mongodb"
+            ]
         },
-        "type": "application",
-        "version": "0.1.0",
-        "apiVersion": "v2",
-        "appVersion": "1.11.0",
-        "kubeVersion": ">=1.16.0-0",
-        "maintainers": [
-          {
-            "name": "AlexT59",
-            "url": "",
-            "email": "alex.trupin@gmail.com"
-          }
-        ],
-        "home": "https://github.com/Yooooomi/your_spotify",
-        "icon": "https://github.com/Yooooomi/your_spotify/blob/master/apps/client/public/logo.svg?raw=true",
-        "sources": [
-          "https://github.com/Yooooomi/your_spotify"
-        ],
-        "keywords": [
-          "spotify",
-          "media",
-          "music",
-          "mongodb"
-        ]
-      },
-      "app_metadata": {
+        "app_metadata": {
             "runAsContext": [
                 {
                     "userName": "actual",
@@ -51,36 +50,36 @@
             ],
             "capabilities": [],
             "hostMounts": []
-        }
-    },
-    "schema": {
-        "groups": [
-            {
-                "name": "server",
-                "description": "Server configuration"
-            }
-        ],
-        "portals": {},
-        "questions": [
-            {
-                "variable": "env",
-                "label": "",
-                "group": "server",
-                "schema": {
-                    "type": "list",
-                    "default": [],
-                    "items": [
-                        {
-                            "variable": "CLIENT_ENDPOINT",
-                            "label": "Client endpoint",
-                            "schema": {
-                                "type": "string",
-                                "required": true
-                            }
-                        }
-                    ]
+        },
+        "schema": {
+            "groups": [
+                {
+                    "name": "server",
+                    "description": "Server configuration"
                 }
-            }
-        ]
+            ],
+            "portals": {},
+            "questions": [
+                {
+                    "variable": "env",
+                    "label": "",
+                    "group": "server",
+                    "schema": {
+                        "type": "list",
+                        "default": [],
+                        "items": [
+                            {
+                                "variable": "CLIENT_ENDPOINT",
+                                "label": "Client endpoint",
+                                "schema": {
+                                    "type": "string",
+                                    "required": true
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     }
 }
