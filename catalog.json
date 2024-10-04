@@ -1,16 +1,16 @@
 {
     "community": {
-        "your-spotify-app": {
-            "app_readme": "<h1>Your Spotify App</h1>\n<p>This is a custom application that provides a server for Spotify integration along with a MongoDB database and a client interface.</p>",
+        "your-spotify": {
+            "app_readme": "<h1>Your Spotify</h1>\n<p>This is a custom application that provides a server for Spotify integration along with a MongoDB database and a client interface.</p>",
             "categories": [
                 "media",
                 "music"
             ],
-            "description": "Your Spotify App is a custom app for integrating with Spotify's API, complete with a backend, frontend, and MongoDB database.",
+            "description": "Your Spotify is a custom app for integrating with Spotify's API, complete with a backend, frontend, and MongoDB database.",
             "healthy": true,
             "healthy_error": null,
             "home": "https://github.com/Yooooomi/your_spotify",
-            "location": "/__w/custom_charts/community/your-spotify",
+            "location": "community/your-spotify",
             "latest_version": "0.1.0",
             "latest_app_version": "1.11.0",
             "latest_human_version": "1.11.0_0.1.0",
