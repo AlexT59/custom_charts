@@ -21,3 +21,14 @@ spec:
       targetPort: {{ .Values.web.port }}
   selector:
     app: {{ .Release.Name }}-web
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-mongo
+spec:
+  type: ClusterIP
+  ports:
+    - port: 27017
+  selector:
+    app: {{ .Release.Name }}-mongo

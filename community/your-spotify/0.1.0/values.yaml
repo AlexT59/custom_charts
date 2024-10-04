@@ -7,7 +7,7 @@ server:
   tag: 1.11.0
   pullPolicy: IfNotPresent
   port: 8080
-  mongoEndpoint: "localhost:27017"
+  mongoEndpoint: "mongodb://localhost:27017/your_spotify"
 
 mongo:
   image: mongo:6
