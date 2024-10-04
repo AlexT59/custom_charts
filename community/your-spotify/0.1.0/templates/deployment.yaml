@@ -20,13 +20,13 @@ spec:
             - containerPort: {{ .Values.server.port }}
           env:
             - name: API_ENDPOINT
-              value: {{ .Values.envr.API_ENDPOINT }}
+              value: {{ .Values.endpoints.apiEndpoint }}
             - name: CLIENT_ENDPOINT
-              value: {{ .Values.envr.CLIENT_ENDPOINT }}
+              value: {{ .Values.endpoints.clientEndpoint }}
             - name: SPOTIFY_PUBLIC
-              value: {{ .Values.envr.SPOTIFY_PUBLIC }}
+              value: {{ .Values.spotKey.publicKey }}
             - name: SPOTIFY_SECRET
-              value: {{ .Values.envr.SPOTIFY_SECRET }}
+              value: {{ .Values.envr.privateKey }}
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -50,7 +50,7 @@ spec:
             - containerPort: {{ .Values.web.port }}
           env:
             - name: API_ENDPOINT
-              value: {{ .Values.common.apiEndpoint }}
+              value: {{ .Values.endpoints.apiEndpoint }}
 ---
 apiVersion: apps/v1
 kind: Deployment
