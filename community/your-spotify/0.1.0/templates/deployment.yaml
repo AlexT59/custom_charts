@@ -20,7 +20,7 @@ spec:
             - containerPort: {{ .Values.server.port }}
           env:
             - name: API_ENDPOINT
-              value: {{ .Values.env.API_ENDPOINT }}
+              value: "{{ .Values.env.API_ENDPOINT }}"
             - name: CLIENT_ENDPOINT
               value: {{ .Values.env.CLIENT_ENDPOINT }}
             - name: SPOTIFY_PUBLIC
