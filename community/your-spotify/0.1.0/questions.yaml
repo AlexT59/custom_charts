@@ -13,20 +13,7 @@ questions:
       attrs:
         - variable: CLIENT_ENDPOINT
           label: "Client Endpoint"
-          description: "The endpoint for the client"
+          description: "The endpoint of your web application"
           schema:
             type: string
             required: true
-        - variable: SPOTIFY_PUBLIC
-          label: "Spotify Public"
-          description: "The public key of your Spotify application (cf https://github.com/Yooooomi/your_spotify?tab=readme-ov-file#creating-the-spotify-application)"
-          schema:
-            type: string
-            required: true
-        - variable: SPOTIFY_SECRET
-          label: "Spotify Secret"
-          description: "The secret key of your Spotify application (cf https://github.com/Yooooomi/your_spotify?tab=readme-ov-file#creating-the-spotify-application)"
-          schema:
-            type: string
-            required: true
-  
