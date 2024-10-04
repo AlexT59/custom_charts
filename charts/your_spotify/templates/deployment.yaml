@@ -1,0 +1,81 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-server
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-server
+    spec:
+      containers:
+        - name: server
+          image: "{{ .Values.server.image }}:{{ .Values.server.tag }}"
+          ports:
+            - containerPort: {{ .Values.server.port }}
+          env:
+            - name: API_ENDPOINT
+              value: {{ .Values.common.apiEndpoint }}
+            - name: CLIENT_ENDPOINT
+              value: {{ .Values.server.env.CLIENT_ENDPOINT }}
+            - name: SPOTIFY_PUBLIC
+              value: {{ .Values.server.env.SPOTIFY_PUBLIC }}
+            - name: SPOTIFY_SECRET
+              value: {{ .Values.server.env.SPOTIFY_SECRET }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-web
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-web
+    spec:
+      containers:
+        - name: web
+          image: "{{ .Values.web.image }}:{{ .Values.web.tag }}"
+          ports:
+            - containerPort: {{ .Values.web.port }}
+          env:
+            - name: API_ENDPOINT
+              value: {{ .Values.common.apiEndpoint }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-mongo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-mongo
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-mongo
+    spec:
+      containers:
+        - name: mongo
+          image: "{{ .Values.mongo.image }}"
+          volumeMounts:
+            - name: mongo-storage
+              mountPath: /data/db
+      volumes:
+        - name: mongo-storage
+          {{- if .Values.mongo.useHostPath }}
+          hostPath:
+            path: {{ .Values.mongo.hostPath }}
+          {{- else }}
+          persistentVolumeClaim:
+            claimName: {{ .Release.Name }}-mongo-pvc
+          {{- end }}

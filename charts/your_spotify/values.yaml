@@ -1,0 +1,22 @@
+common:
+  apiEndpoint: "http://localhost:8080"
+
+server:
+  image: yooooomi/your_spotify_server
+  tag: latest
+  port: 8080
+  env:
+    CLIENT_ENDPOINT: "http://localhost:3000"
+    SPOTIFY_PUBLIC: "__your_spotify_client_id__"
+    SPOTIFY_SECRET: "__your_spotify_secret__"
+
+mongo:
+  image: mongo:6
+  useHostPath: false # If true use hostPath, if false use PVC
+  hostPath: / # Path to use if hostPath is true
+  storageSize: 1Gi # PVC storage size if useHostPath is false
+
+web:
+  image: yooooomi/your_spotify_client
+  tag: latest
+  port: 3000
