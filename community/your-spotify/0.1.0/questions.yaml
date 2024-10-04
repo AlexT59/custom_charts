@@ -1,17 +1,17 @@
 groups:
-  - name: "server"
-    description: "Server configuration"
+  - name: "App endpoints"
+    description: "The endpoints for the application"
   
 questions:
-  - variable: env
-    label: "Environment"
-    description: "The environment to deploy to"
-    group: "server"
+  - variable: endpoints
+    label: "Endpoints"
+    description: "The endpoints for the application"
+    group: "App endpoints"
     schema:
       type: dict
       required: true
       attrs:
-        - variable: CLIENT_ENDPOINT
+        - variable: clientEndpoint
           label: "Client Endpoint"
           description: "The endpoint of your web application"
           schema:

@@ -60,19 +60,18 @@
             ],
             "questions": [
                 {
-                    "variable": "env",
+                    "variable": "endpoints",
                     "label": "",
                     "group": "server",
                     "schema": {
                         "type": "list",
-                        "default": [],
                         "items": [
                             {
-                                "variable": "CLIENT_ENDPOINT",
+                                "variable": "clientEndpoint",
                                 "label": "Client endpoint",
                                 "schema": {
                                     "type": "string",
-                                    "required": false,
+                                    "required": true,
                                     "default": "http://localhost:3000"
                                 }
                             }
