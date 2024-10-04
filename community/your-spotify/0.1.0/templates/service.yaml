@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}-server
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
     - port: 8080
       targetPort: {{ .Values.server.port }}
@@ -15,7 +15,7 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}-web
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
     - port: 3000
       targetPort: {{ .Values.web.port }}
@@ -27,8 +27,9 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}-mongo
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
     - port: 27017
+      targetPort: 27017
   selector:
     app: {{ .Release.Name }}-mongo
