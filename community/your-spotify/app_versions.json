@@ -58,7 +58,6 @@
                     "description": "Server configuration"
                 }
             ],
-            "portals": {},
             "questions": [
                 {
                     "variable": "env",

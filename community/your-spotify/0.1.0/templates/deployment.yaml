@@ -20,13 +20,13 @@ spec:
             - containerPort: {{ .Values.server.port }}
           env:
             - name: API_ENDPOINT
-              value: {{ .Values.common.apiEndpoint }}
+              value: {{ .Values.env.API_ENDPOINT }}
             - name: CLIENT_ENDPOINT
-              value: {{ .Values.server.env.CLIENT_ENDPOINT }}
+              value: {{ .Values.env.CLIENT_ENDPOINT }}
             - name: SPOTIFY_PUBLIC
-              value: {{ .Values.server.env.SPOTIFY_PUBLIC }}
+              value: {{ .Values.env.SPOTIFY_PUBLIC }}
             - name: SPOTIFY_SECRET
-              value: {{ .Values.server.env.SPOTIFY_SECRET }}
+              value: {{ .Values.env.SPOTIFY_SECRET }}
 ---
 apiVersion: apps/v1
 kind: Deployment

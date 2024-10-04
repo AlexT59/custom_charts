@@ -1,15 +1,14 @@
-common:
-  apiEndpoint: "http://localhost:8080"
+env:
+  CLIENT_ENDPOINT: "http://localhost:3000"
+  SPOTIFY_PUBLIC: "__your_spotify_client_id__"
+  SPOTIFY_SECRET: "__your_spotify_secret__"
+  API_ENDPOINT: "http://localhost:8080"
 
 server:
   image: yooooomi/your_spotify_server
-  tag: latest
+  tag: 1.11.0
   pullPolicy: IfNotPresent
   port: 8080
-  env:
-    CLIENT_ENDPOINT: "http://localhost:3000"
-    SPOTIFY_PUBLIC: "__your_spotify_client_id__"
-    SPOTIFY_SECRET: "__your_spotify_secret__"
 
 mongo:
   image: mongo:6
@@ -20,6 +19,6 @@ mongo:
 
 web:
   image: yooooomi/your_spotify_client
-  tag: latest
+  tag: 1.11.0
   pullPolicy: IfNotPresent
   port: 3000
